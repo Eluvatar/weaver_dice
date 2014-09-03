@@ -31,14 +31,6 @@ THE_SUN = 20
 THE_ANGEL = 21
 THE_WORLD = 22
 
-class Character:
-    def __init__(disadvantage_life=None, disadvantage_powers=None, advantages=()):
-        self.disadvantage_life = disadvantage_life
-        self.disadvantage_powers = disadvantage_powers
-        self.advantages = advantages
-    def __unicode__():
-        # TODO tostring each extant card
-
 class Card:
     def __init__(self, root, table, children=None)
        self.root=root
@@ -77,6 +69,7 @@ def _disadvantage_life():
         return Card(roll, LIFE_DISADVANTAGES, (_disadvantage_life(),_disadvantage_life()))
     elif roll == TEMPERANCE:
         return Card(roll, LIFE_DISADVANTAGES, (_advantage(),_advantage()))
+
 def _disadvantage_powers():
     roll = tarot_roll()
 
@@ -87,9 +80,20 @@ def _disadvantage_powers():
     return Card(roll, POWER_DISADVANTAGES)
 
 
-def luck():
+def character():
     roll = luck_roll()
 
     if roll in range(1,3):
-        return Character(disadvantage_life=_disadvantage_life(),disadvantage_powers=_disadvantage_powers())
+        return (_disadvantage_life(),_disadvantage_powers(),)
     elif roll in range(3,5):
+        return (_disadvantage_powers(),)
+    elif roll in range(5,7):
+        return (_disadvantage_life(),)
+    elif roll in range(7,9):
+        return (_advantage(),_disadvantage_life(),)
+    elif roll in range(9,11):
+        return (_advantage(),_disadvantage_powers(),)
+    elif roll in range(11,13):
+        return (_advantage(),_advantage(),)
+    else:
+        raise 'luck rolled higher than 12 or lower than 1??'
