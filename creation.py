@@ -32,7 +32,7 @@ THE_ANGEL = 21
 THE_WORLD = 22
 
 ADVANTAGES = [
-None,
+"Advantage",
 """People idolize you.  They're not often useful people, but you've got a following.  (groupies, fans, people online, whatever).  This is more celebrity/notoriety than anything else.""",
 """You were more lucid than most when you got your powers, and somehow, you managed to direct things to your advantage.  You can make an edit in some respect to how your powers operate (beyond what the group decided on in consensus).  Within reason.""",
 """You and your power are in sync.  Treat this as luck or periodic power boosts.  The duration before this is available again isn't necessarily known to you.""",
@@ -62,51 +62,51 @@ Good fortune finds you, either because of fortuitous circumstance or a helpful p
 """
 ]
 LIFE_DISADVANTAGES = [
-None,
+"Life Issue",
 """Bad decisions follow you on a day to day basis.  Addiction, diabetes from poor diet, STDs, accidental children to look after, superpowered loan sharks and worse.
-Cost: Lack of money, time, or both, depending.""",
+Cost - Lack of money, time, or both, depending.""",
 """Mental issues, stemming either from powers or something prior to the powers, make your life harder.  Includes developmental delays, neuroses, psychological issues, or your powers just discombobulated your brain somehow.
-Cost:  Impaired judgement or functioning."""
+Cost - Impaired judgement or functioning.""",
 """Otherworldly issues - your passenger.  Your passenger is impacting your ability to function.  If you're young, it's likely affecting you in a core emotional way based on your powers, altering your mindset (a pyrokinetic might be very inclined toward destruction or recklessness).  
 If you're older, it's more deep-rooted and subtle (a 30 year old pyrokinetic might have frequent cathartic dreams where they burn their enemies to death, getting more intense, pleasurable, and stronger until they follow through).  Either way, it's shaping your actions and pushing them towards one particular concept or objective.
-Cost:  Failure to attend to the passenger's overall goal/drive with some regularity may cause passenger to take over briefly, making decisions of its own whim.  This could be a full-body takeover (as with the young) or cases where the power extends a little too far or crosses a line (for older parahumans).""",
+Cost - Failure to attend to the passenger's overall goal/drive with some regularity may cause passenger to take over briefly, making decisions of its own whim.  This could be a full-body takeover (as with the young) or cases where the power extends a little too far or crosses a line (for older parahumans).""",
 """Family issues.  Either your unpowered family is powerful enough to impact your cape life or they have powers and aren't entirely on board with what you want.  Either way, they muddle up your life, cape or uncostumed.
-Cost:  Expect regular, low-level interference.""",
+Cost - Expect regular, low-level interference.""",
 """Power issues.  Your status and/or life experience out of costume is such that it impacts your overall life.  Examples might be being very young, being homeless, or being visibly disabled.  If none of these fit, then your secret identity is known and your real-life occupation is unglamorous enough to work against your reputation.
-Cost: Reputation issues cause trouble amassing power/status, seen as easy target.""",
+Cost - Reputation issues cause trouble amassing power/status, seen as easy target.""",
 """Bad attitude.  You have crippling anxiety issues, abrasiveness, or other issues that make you very hard to get along with.  Unlike the Emperor, your issue doesn't cause trouble with reputation.  It does cause trouble with peer interaction.
-Cost:  Trouble amassing contacts or allies."""
+Cost - Trouble amassing contacts or allies.""",
 """It's about ill-advised trysts.  A romantic partner on the other side of the hero-villain divide, an ex-relationship with someone who knows enough to fuck up your life, a person you just can't say no to/break up with for good.
-Cost: Irregular, low-level, really inconvenient interference.""",
+Cost - Irregular, low-level, really inconvenient interference.""",
 """Location.  It's all about location, and yours is less than stellar.  You're stuck somewhere shitty/unappealing/inconvenient, perhaps, and something/someone is keeping you there.  Alternately, you're just doomed to be unable to set down roots (someone after you, chasing you away?  Power ruins home?)
-Cost:  Either your home/hq is lousy or you shouldn't expect to be able to keep more possessions than you can carry with you.""",
+Cost - Either your home/hq is lousy or you shouldn't expect to be able to keep more possessions than you can carry with you.""",
 """Past crimes, be they in costume or otherwise, follow you.  A vigilante seeks revenge,  your powers killed someone when they manifested and set you on a path you didn't want, or you gained an inconvenient reputation.
-Cost: You're set on a dangerous/reckless/inconvenient path and going against that grain is difficult.  Conversely, continuing down that path will see a powerful nemesis coming after you.""",
+Cost - You're set on a dangerous/reckless/inconvenient path and going against that grain is difficult.  Conversely, continuing down that path will see a powerful nemesis coming after you.""",
 """Entropy.  It's about time: you don't have enough.  Some deadline is ticking down and you have to meet an objective before then, or you're dying, or you're trying to save someone or something.
-Cost:  You might drop out of the game if you can't achieve a certain agreed-upon task in a specified span of time.  It may well take more time than you have, barring sacrifices, intervention, cooperation of others (other players) or extreme luck.""",
+Cost - You might drop out of the game if you can't achieve a certain agreed-upon task in a specified span of time.  It may well take more time than you have, barring sacrifices, intervention, cooperation of others (other players) or extreme luck.""",
 """Misfortune.  Two more rolls are made and kept private from you.  The disadvantages are introduced at intervals later in the game.""",
 """Fettered.  You have a code you must keep to.  Failure to do so is liable to be disastrous.
-Cost:  If you can't keep to the code (one agreed-upon in collaboration between you and the group) then expect a string of ill-fortune following the break.  Depends on system, but a morale penalty, loss of power control, or a string of failures should be expected for a brief but meaningful time or until some appreciable atonement to the code is made.""",
+Cost - If you can't keep to the code (one agreed-upon in collaboration between you and the group) then expect a string of ill-fortune following the break.  Depends on system, but a morale penalty, loss of power control, or a string of failures should be expected for a brief but meaningful time or until some appreciable atonement to the code is made.""",
 """Distrust.  Someone is going to screw you over.  Probably the most inconvenient person.
-Cost: Forming contacts/associations is going to be harder, because you know this is coming.  If the person is another player, they get a reward for fulfilling this effect.""",
+Cost - Forming contacts/associations is going to be harder, because you know this is coming.  If the person is another player, they get a reward for fulfilling this effect.""",
 """Inevitable Danger.  The first big threat is liable to land right in your neighborhood, it's going to target you, and there's no walking away.""",
 """Disharmony.  Two rolls are made on the advantage chart and kept secret from you.  These two things are linked, and success in one area will lead to failures in the other.  This should/will probably take a brief while for you to figure out (ie. it'll be abstract, or the inconvenience will show up some time later).  No bonuses are actually given.""",
 """Nemesis.  Someone's out to get you, and they're about as strong as you are.
-Cost: They're liable to try to kill or ruin you.""",
+Cost - They're liable to try to kill or ruin you.""",
 """Dark revelations.  Your civilian identity is known.
-Cost:  You've got people to protect and your enemies know it.  Failure to look after them means an effective game over.""",
+Cost - You've got people to protect and your enemies know it.  Failure to look after them means an effective game over.""",
 """Exile.  A group, place, organization, your family, or something drove you out, and you need back in (to get something, to reclaim something, whatever else).  
-Cost: Until you reclaim your place, you're bound to be one step behind.""",
+Cost - Until you reclaim your place, you're bound to be one step behind.""",
 """Delusions of Grandeur.  Your goals/aspirations are unrealistically or impossibly high.  You suffer a setback following any scenario or interaction where you weren't top dog or leader of the group (powers fail you, you lose reputation or money, etc.), depending on your particular personality and nature.""",
 """Crisis.  You're going through a life-changing hardship, to the point that the cape stuff is just a distraction, and it is an effective distraction.  Someone close to you is ill/recently dead, or you just watched your successful life crumble and are scrambling (and failing) to pick up the pieces, or something in that vein.
-Cost:  One big, inconvenient distraction that isn't conquered until you've basically reached the lowest point and then climbed back up.""",
+Cost - One big, inconvenient distraction that isn't conquered until you've basically reached the lowest point and then climbed back up.""",
 """Dangerous Beliefs.  You hold a... pretty controversial or problematic belief system or ritual.  You're a neo nazi, a serial killer, a convicted sex offender of the worst kind.  It's bad, and it's a big enough part of you that you can't keep it a total secret.
-Cost:  For WD with standard rules, other players can't `win' unless you've lost decisively.  For other games, it's going to impact you on pretty much every front.""",
+Cost - For WD with standard rules, other players can't `win' unless you've lost decisively.  For other games, it's going to impact you on pretty much every front.""",
 """Destructiveness.  Because of something that's going on, something ugly, a quirk of your power, psychosis or whatever else, you walk a path of ruin.
-Cost: You can't win unless every other player has decisively lost the game."""
+Cost - You can't win unless every other player has decisively lost the game."""
 ]
 POWER_DISADVANTAGES = [
-None,
+"Power Issue",
 """Your powers aren't controlled.  They're always on, or they're random, or they act with a mind of their own.""",
 """Your powers are limited by a fetish or totem - something you have to keep on hand to be able to use them, due to a ritual or tic.  Roll twice more to see just what the penalties are if this fetish is denied you or lost.""",
 """Your powers are reliant on the passenger - it manages the specifics of your power in the field.  Expect collateral damage.""",
@@ -140,9 +140,14 @@ class Card:
        self.children=children
     def __repr__(self):
        if self.children:
-           return self.table[self.root]+"\n\n"+"\n".join(map(str,self.children))
+           children = []
+           n = len(self.children)
+           for i in range(0,n):
+               children.append( "[%d/%d] %s" % (i+1, n, self.children[i]) )
+           ch = "\n".join(children)
+           return "[%s] %s\n\n%s" % (self.table[0], self.table[self.root], ch)
        else:
-           return self.table[self.root]
+           return "[%s] %s" % (self.table[0], self.table[self.root])
 
 class WorldAdvantage:
     benefits = [
@@ -159,7 +164,7 @@ class WorldAdvantage:
     def __init__(self, points):
         self.points = points
     def __repr__(self):
-        s = ADVANTAGES[THE_WORLD]
+        s = "[%s] %s" % (ADVANTAGES[0],ADVANTAGES[THE_WORLD])
         for (cost,benefit) in WorldAdvantage.benefits:
             if cost <= self.points:
                 s += "\n" + str(cost) + ": " + benefit
