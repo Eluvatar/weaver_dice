@@ -1,3 +1,11 @@
+"""
+creation.py - Character creation utility for Weaver Dice
+Copyright 2014, Gundor Gepein
+Licensed under the GPL3.
+
+Weaver Dice copyright 2013-2014, Wildbow
+"""
+
 import random
 
 r = random.SystemRandom()
