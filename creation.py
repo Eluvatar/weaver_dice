@@ -168,38 +168,34 @@ class WorldAdvantage:
         for (cost,benefit) in WorldAdvantage.benefits:
             if cost <= self.points:
                 s += "\n" + str(cost) + ": " + benefit
-        return s
+        return s+"\npoints: "+str(self.points)
 
 class WorldDisadvantage:
     def __init__(self, points):
         self.points = points
     def __repr__(self):
-        # TODO dekludge
         return POWER_DISADVANTAGES[THE_WORLD] +"\npoints: "+str(self.points)
 
-def _advantage():
-    roll = tarot_roll()
+def advantage(roll=tarot_roll()):
     
     if roll == THE_WORLD:
         return WorldAdvantage(tarot_roll())
     return Card(roll, ADVANTAGES)
 
-def _disadvantage_life():
-    roll = tarot_roll()
+def disadvantage_life(roll=tarot_roll()):
     
     if roll == WHEEL:
-        return Card(roll, LIFE_DISADVANTAGES, (_disadvantage_life(),_disadvantage_life()))
+        return Card(roll, LIFE_DISADVANTAGES, (disadvantage_life(),disadvantage_life()))
     elif roll == TEMPERANCE:
-        return Card(roll, LIFE_DISADVANTAGES, (_advantage(),_advantage()))
+        return Card(roll, LIFE_DISADVANTAGES, (advantage(),advantage()))
     return Card(roll, LIFE_DISADVANTAGES)
 
-def _disadvantage_powers():
-    roll = tarot_roll()
+def disadvantage_powers(roll=tarot_roll()):
     
     if roll == MAGUS:
-        return Card(roll, POWER_DISADVANTAGES, (_disadvantage_powers(),_disadvantage_powers()))
+        return Card(roll, POWER_DISADVANTAGES, (disadvantage_powers(),disadvantage_powers()))
     elif roll == THE_SUN:
-        return Card(roll, POWER_DISADVANTAGES, (_disadvantage_powers(),_disadvantage_powers(),_disadvantage_powers()))
+        return Card(roll, POWER_DISADVANTAGES, (disadvantage_powers(),disadvantage_powers(),disadvantage_powers()))
     elif roll == THE_WORLD:
         return WorldDisadvantage(tarot_roll())
     return Card(roll, POWER_DISADVANTAGES)
@@ -209,16 +205,16 @@ def character():
     roll = luck_roll()
     
     if roll in range(1,3):
-        return (_disadvantage_life(),_disadvantage_powers(),)
+        return (disadvantage_life(),disadvantage_powers(),)
     elif roll in range(3,5):
-        return (_disadvantage_powers(),)
+        return (disadvantage_powers(),)
     elif roll in range(5,7):
-        return (_disadvantage_life(),)
+        return (disadvantage_life(),)
     elif roll in range(7,9):
-        return (_advantage(),_disadvantage_life(),)
+        return (advantage(),disadvantage_life(),)
     elif roll in range(9,11):
-        return (_advantage(),_disadvantage_powers(),)
+        return (advantage(),disadvantage_powers(),)
     elif roll in range(11,13):
-        return (_advantage(),_advantage(),)
+        return (advantage(),advantage(),)
     else:
         raise 'luck rolled higher than 12 or lower than 1??'
