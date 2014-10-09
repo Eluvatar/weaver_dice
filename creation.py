@@ -153,9 +153,9 @@ class Card:
            for i in range(0,n):
                children.append( "[%d/%d] %s" % (i+1, n, self.children[i]) )
            ch = "\n".join(children)
-           return "[%s] %s\n\n%s" % (self.table[0], self.table[self.root], ch)
+           return "[%s] (%d) %s\n\n%s" % (self.table[0], self.root, self.table[self.root], ch)
        else:
-           return "[%s] %s" % (self.table[0], self.table[self.root])
+           return "[%s] (%d) %s" % (self.table[0], self.root, self.table[self.root])
 
 class WorldAdvantage:
     benefits = [
@@ -172,7 +172,7 @@ class WorldAdvantage:
     def __init__(self, points):
         self.points = points
     def __repr__(self):
-        s = "[%s] %s" % (ADVANTAGES[0],ADVANTAGES[THE_WORLD])
+        s = "[%s] (%d) %s" % (ADVANTAGES[0],THE_WORLD,ADVANTAGES[THE_WORLD])
         for (cost,benefit) in WorldAdvantage.benefits:
             if cost <= self.points:
                 s += "\n" + str(cost) + ": " + benefit
@@ -182,15 +182,17 @@ class WorldDisadvantage:
     def __init__(self, points):
         self.points = points
     def __repr__(self):
-        return POWER_DISADVANTAGES[THE_WORLD] +"\npoints: "+str(self.points)
+        return "[%s] (%d) %s\npoints: %d"%(POWER_DISADVANTAGES[0],THE_WORLD,POWER_DISADVANTAGES[THE_WORLD],self.points)
 
-def advantage(roll=tarot_roll()):
+def advantage(roll=None):
+    if not roll: roll = tarot_roll()
     
     if roll == THE_WORLD:
         return WorldAdvantage(tarot_roll())
     return Card(roll, ADVANTAGES)
 
-def disadvantage_life(roll=tarot_roll()):
+def disadvantage_life(roll=None):
+    if not roll: roll = tarot_roll()
     
     if roll == WHEEL:
         return Card(roll, LIFE_DISADVANTAGES, (disadvantage_life(),disadvantage_life()))
@@ -198,7 +200,8 @@ def disadvantage_life(roll=tarot_roll()):
         return Card(roll, LIFE_DISADVANTAGES, (advantage(),advantage()))
     return Card(roll, LIFE_DISADVANTAGES)
 
-def disadvantage_powers(roll=tarot_roll()):
+def disadvantage_powers(roll=None):
+    if not roll: roll = tarot_roll()
     
     if roll == MAGUS:
         return Card(roll, POWER_DISADVANTAGES, (disadvantage_powers(),disadvantage_powers()))
@@ -213,16 +216,16 @@ def character():
     roll = luck_roll()
     
     if roll in range(1,3):
-        return (disadvantage_life(),disadvantage_powers(),)
+        return (roll,disadvantage_life(),disadvantage_powers(),)
     elif roll in range(3,5):
-        return (disadvantage_powers(),)
+        return (roll,disadvantage_powers(),)
     elif roll in range(5,7):
-        return (disadvantage_life(),)
+        return (roll,disadvantage_life(),)
     elif roll in range(7,9):
-        return (advantage(),disadvantage_life(),)
+        return (roll,advantage(),disadvantage_life(),)
     elif roll in range(9,11):
-        return (advantage(),disadvantage_powers(),)
+        return (roll,advantage(),disadvantage_powers(),)
     elif roll in range(11,13):
-        return (advantage(),advantage(),)
+        return (roll,advantage(),advantage(),)
     else:
         raise 'luck rolled higher than 12 or lower than 1??'
