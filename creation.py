@@ -7,8 +7,11 @@ Weaver Dice copyright 2013-2014, Wildbow
 """
 
 import random
+from collections import defaultdict
 
 r = random.SystemRandom()
+
+# Section 1: Natural Trigger Rules
 
 def luck_roll():
     return r.randint(1,12)
@@ -234,3 +237,66 @@ def character():
         return (roll,advantage(),advantage(),)
     else:
         raise 'luck rolled higher than 12 or lower than 1??'
+
+# Section 2: Cauldron Rules
+
+def cauldron_luck(roll=None):
+    if not roll: roll = r.randint(1,6)
+    
+    luck = "Luck: %d"%roll
+
+    if roll == 1:
+        return (luck,disadvantage_life())
+    elif roll == 2:
+        return (luck,disadvantage_powers())
+    elif roll in range(3,5):
+        return (luck,)
+    elif roll in range(5,7):
+        return (luck,advantage())
+    else:
+        raise 'cauldron luck rolled higher than 6 or lower than 1??'
+
+def deviation_severity(part,roll,adjusted):
+    part_name = [None,"Head","Shoulder","Torso","Arm","Hand","Leg","Extra limb (tail, wing)*","Foot","Skin","Eye","Hair","Mouth","Nose","Brain (thinking)","Brain (emotion)"]
+    if adjusted in range(1,3):
+        return """
+[{0}] ({1} -> {2}) Negligible, easily hidden change. Can include spots on skin can be covered up with makeup, spines on head can be covered with hat or longer hair.
+""".format(part_name[part], roll, adjusted)
+    elif adjusted in range(3,5):
+        return """
+[{0}] ({1} -> {2}) Moderate change, hideable, but not easily - may require time to cover up, expense, or cover-up may only be possible with very heavy clothing (and thus be circumstantial).  Might include skin that's purple from head to toe, fish-like fins at places where bone is close to skin, horns.
+""".format(part_name[part], roll, adjusted)
+    elif adjusted in range(5,7):
+        return """
+[{0}] ({1} -> {2}) Severe change.  Not hideable without a combination of time, expense, and some distance from people.  Might include grotesque hunchback, crustacean-like plating on body, or perpetually glowing body.  Very possible that functionality of body changes, typically horizontally (gain some lose some) or for the worse.
+""".format(part_name[part], roll, adjusted)
+    elif adjusted > 6:
+        return """
+[{0}] ({1} -> {2}) Horrific change.  Not hideable, changes are noticeable from 1 city block away without difficulty.  Body parts may well be alien in nature (tentacles, forearms arms three times the usual length with claws in place of hands), assume a permanent breaker state, or more.  Loss of normal human functioning is likely, depending on the parts in question (may be unable to speak, require different diet, etc).
+""".format(part_name[part], roll, adjusted)
+
+def deviation(roll):
+    roll1 = r.randint(1,6)
+    roll2 = r.randint(1,6)
+    num_rolls = roll1 + roll2
+    deviations = []
+    parts = defaultdict(int)
+
+    for i in range(num_rolls):
+        parts[r.randint(1,15)] += 1
+
+    for p in range(1,16):
+        if parts[p] > 0:
+            proll = r.randint(1,4)
+            dev = deviation_severity(p, proll, proll + (5-roll) + 2*parts[p])
+            deviations.append(dev)
+
+    return (roll1, roll2) + tuple(deviations)
+
+def cauldron(adjustment=0,roll=None):
+    if not roll: roll = r.randint(1,20)
+    
+    if roll + adjustment <= 5:
+        return ("Case 53:",)+deviation(roll + adjustment)+cauldron_luck()
+    else:
+        return ("(%d)"%roll,)+cauldron_luck()
