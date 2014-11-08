@@ -62,8 +62,13 @@ ADVANTAGES = [
 Edit: This can't be done again until they die or are otherwise taken out of play.  If they do, there is a meaningful delay (ie. a week) before you can do it again.
 """,
 """You've got a link to a secret society (quite possibly Cauldron, or the Thanda).  You can call in a favor once - the later in the game, the greater the effect (grant powers to certain individuals, hit a big threat, etc).""",
-"""
-Good fortune finds you, either because of fortuitous circumstance or a helpful passenger that understands what you're after.  You walk away with a little more treasure or better rep boosts when you finish a job/mission/quest.  May improve further with a good run (several successes in a row).
+"""Pick two:
+- You start with more assets.
+- You or groups you have a leadership position in gain 10% more wealth when gaining large amounts.
+- Your first attack/offensive maneuver in a day is just a little more damaging.
+- Your power's reach is just a little further on the first serious use o fthe day.
+- The first time you're taken out of action in a day, if it's possible (i.e. you're not annihilated), you automatically get to keep fighting.
+- You're easily satisfied. You generally wake up well rested and more focused than most. It's harder to get you down morale-wise.
 """,
 "You have the capacity for a second trigger.",
 """Usual rules don't apply to you.  Roll 1-22 again.  You `buy' abilities.  Negotiate with others for your own ideas or use the list below to purchase.   You can buy things several times.  Higher cost features might suggest an inhuman nature (player as A.I., player as a product of another power, etc).  Options can be permanent or single effects.
